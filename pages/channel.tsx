@@ -2,12 +2,14 @@ import { DefaultLayout } from '@/layouts';
 import ProfileChannelItem from '@/components/profile/ProfileChannelItem';
 import { channelItemList } from '@/components/profile/channelItemList';
 import Pagination from '@/components/pagination';
-import { videoItemList } from '@/components/profile/videoItemList';
+// import { videoItemList } from '@/components/profile/videoItemList';
 import ProfileVideoItem from '@/components/profile/ProfileVideoItem';
+import { useProfileVideo } from '@/api/get/Profile';
 
 export interface IndexProps { }
 
 const Channel: React.FC<IndexProps> = () => {
+  const { data } = useProfileVideo();
   return (
     <DefaultLayout sidebarVariant="open">
       <div className="flex flex-1 justify-between">
@@ -31,9 +33,17 @@ const Channel: React.FC<IndexProps> = () => {
             <div className='text-[20px] text-[#3D3D3D] font-bold mb-6'>Featured Videos</div>
             <div className="grid grid-cols-1 gap-x-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {
-                videoItemList.map((itm, index) => {
+                data?.videos?.map((itm, index) => {
                   return (
-                    <ProfileVideoItem {...itm} key={"itm" + index}></ProfileVideoItem>
+                    <ProfileVideoItem 
+                    imgUrl={itm.url}
+                    title={itm.title}
+                    name=""
+                    views={itm.views}
+                    avatarUrl=""
+                    hasLength={false}
+                    length=""
+                    key={"itm" + index}></ProfileVideoItem>
                   )
                 })
               }
