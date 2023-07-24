@@ -1,0 +1,69 @@
+:root {
+  --primary: white;
+  --secondary: #C400C4;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scrollbar-color: #6969dd #e0e0e0;
+  scrollbar-width: thin;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+html,
+body,
+body>div:first-child,
+div#__next {
+  height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.filter-50 {
+  filter: brightness(0.5);
+}
+
+#category-button[data-headlessui-state~="selected"] {
+  color: #F56EB3;
+}
+
+#paper-button[data-headlessui-state~="selected"] {
+  color: #F56EB3;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--primary);
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+  border-radius: 14px;
+  border: 2px solid var(--primary);
+}
+
+.thin-scroll::-webkit-scrollbar-thumb {
+  border-width: 6px;
+}
