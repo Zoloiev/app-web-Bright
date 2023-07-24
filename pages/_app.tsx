@@ -18,13 +18,13 @@ export default function App({ Component, pageProps }: AppProps) {
       <PersistGate persistor={persistor}>
         <NotistackProvider>
           <JwtProvider>
-            {/* <ErrorBoundary fallback = {<Error />}> */}
-            {/* <Suspense fallback={<Loading />}> */}
+            {/* <ErrorBoundary fallback = {<Error />}>
+            <Suspense fallback={<Loading />}> */}
           <SWRConfig value={{ fetcher}}>
             <Component {...pageProps} />
             </SWRConfig>
-            {/* </Suspense> */}
-            {/* </ErrorBoundary> */}
+            {/* </Suspense>
+            </ErrorBoundary> */}
           </JwtProvider>
         </NotistackProvider>
       </PersistGate>

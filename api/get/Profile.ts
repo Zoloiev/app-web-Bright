@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { API_PROFILE_CHANNEL, API_PROFILE_VIDEO } from "../api-endpoint";
+import { API_PROFILE_CHANNEL, API_PROFILE_VIDEO } from "../api-endpoints";
 import { ProfileChannel, ProfileVideo } from "@/types/profile";
 
 export function useProfileVideo() {
