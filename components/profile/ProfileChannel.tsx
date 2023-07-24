@@ -1,7 +1,9 @@
+import { useProfileChannel } from '@/api/get/Profile';
 import ProfileChannelItem from './ProfileChannelItem';
 import { channelItemList } from './channelItemList';
 
 const ProfileChannel = () => {
+  const { data } = useProfileChannel();
   return (
     <div className='mt-[20px]'>
       <div className='mb-[15px] flex items-center justify-between'>
@@ -10,9 +12,14 @@ const ProfileChannel = () => {
       </div>
       <div className="grid grid-cols-1 gap-x-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {
-          channelItemList.map((itm, index) => {
+          data?.channels?.map((itm, index) => {
             return (
-              <ProfileChannelItem {...itm} key={"itm" + index}></ProfileChannelItem>
+              <ProfileChannelItem 
+              avatarUrl={itm.userId}
+              name= {itm.title}
+              views={itm.description}
+              subscribed={false}
+              key={"itm" + index}></ProfileChannelItem>
             )
           })
         }

@@ -2,7 +2,7 @@ interface WatchItemProps {
   imgUrl: string,
   title: string,
   name: string,
-  views: string,
+  views: number,
   avatarUrl: string,
   hasLength?: boolean,
   length?: string,
@@ -11,10 +11,17 @@ interface WatchItemProps {
 const ProfileVideoItem: React.FC<WatchItemProps> = ({ title, name, avatarUrl, imgUrl, views, hasLength = false, length }) => {
   return (
     <div className="mb-4 relative">
-      <img src={imgUrl} className="w-full h-auto rounded-2xl cursor-pointer hover:opacity-60" alt="background"/>
-      <div className="my-[8px] font-semibold text-[14px] text-black">
+      {/* <img src={imgUrl} className="w-full h-auto rounded-2xl cursor-pointer hover:opacity-60" alt="background"/> */}
+      <div className="my-[8px] font-semibold text-[24px] text-black">
         {title}
       </div>
+      <video 
+        width="250"
+        height="auto"
+        className="rounded-2xl cursor-pointer hover:opacity-60"
+        controls>
+          <source src={imgUrl} type="video/mp4" />
+        </video>
       <div className="flex items-center">
         <img src={avatarUrl} className="w-[24px] h-[24px] rounded-full mr-2" alt="avatar"/>
         <div className="font-normal text-[12px] text-[#959595]">
